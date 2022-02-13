@@ -3,6 +3,7 @@ import sliders from './modules/sliders';
 import showMoreStyles from './modules/showMoreStyles';
 import calc from './modules/calc';
 import filtr from './modules/filtr';
+import pictureSize from './modules/pictureSize';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -12,4 +13,5 @@ window.addEventListener('DOMContentLoaded', () => {
     showMoreStyles('.button-styles', '#styles .row');
     calc('#size', '#material', '#options', '.promocode', '.calc-price');
     filtr();
+    pictureSize('.sizes-block');
 });
