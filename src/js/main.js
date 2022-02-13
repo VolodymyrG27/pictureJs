@@ -2,6 +2,7 @@ import modals from './modules/modals';
 import sliders from './modules/sliders';
 import showMoreStyles from './modules/showMoreStyles';
 import calc from './modules/calc';
+import filtr from './modules/filtr';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -10,4 +11,5 @@ window.addEventListener('DOMContentLoaded', () => {
     sliders('.main-slider-item', 'vertical');
     showMoreStyles('.button-styles', '#styles .row');
     calc('#size', '#material', '#options', '.promocode', '.calc-price');
+    filtr();
 });
