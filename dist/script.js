@@ -3666,6 +3666,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_filtr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/filtr */ "./src/js/modules/filtr.js");
 /* harmony import */ var _modules_pictureSize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/pictureSize */ "./src/js/modules/pictureSize.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+
 
 
 
@@ -3682,7 +3684,66 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_3__["default"])('#size', '#material', '#options', '.promocode', '.calc-price');
   Object(_modules_filtr__WEBPACK_IMPORTED_MODULE_4__["default"])();
   Object(_modules_pictureSize__WEBPACK_IMPORTED_MODULE_5__["default"])('.sizes-block');
+  Object(_modules_accordion__WEBPACK_IMPORTED_MODULE_6__["default"])('.accordion-heading');
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/accordion.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/accordion.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+//Example first - used css
+
+/*
+const accordion = (triggersSelector, itemSelector) => {
+    const btns = document.querySelectorAll(triggersSelector),
+          blocks = document.querySelectorAll(itemSelector);
+    
+    blocks.forEach(block => {
+        block.classList.add('animated', 'fadeInDown');
+    });
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            if(!this.classList.contains('active')) {
+                btns.forEach(btn => {
+                    btn.classList.remove('active', 'active-style')
+                });
+                this.classList.add('active', 'active-style');
+            }
+        });
+    })
+};
+*/
+//Example second - used JS animation
+var accordion = function accordion(triggersSelector) {
+  var btns = document.querySelectorAll(triggersSelector);
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      this.classList.toggle('active-style'); //звертаємось до наступного елементу на сторінці
+
+      this.nextElementSibling.classList.toggle('active-content');
+
+      if (this.classList.contains('active-style')) {
+        this.nextElementSibling.style.maxHeight = this.nextElementSibling.scrollHeight + 80 + "px";
+      } else {
+        this.nextElementSibling.style.maxHeight = '0px';
+      }
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (accordion);
 
 /***/ }),
 
